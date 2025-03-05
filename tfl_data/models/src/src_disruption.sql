@@ -6,9 +6,9 @@ WITH raw_disruption AS (
 )
 
 SELECT 
-    response:description AS description, 
-    response:affectedRoutes AS affectedRoutes, 
-    response:affectedStops AS affectedStops, 
-    response:closureText AS closureText, 
+    split_part(response:description, ':', 0) AS line,
+    split_part(response:description, ':', 2) AS description,
+    response:closureText AS closureText,
+    response:type AS type,
     time_received AS time_received
-FROM raw_disruption
+FROM TFL.RAW.DISRUPTION
