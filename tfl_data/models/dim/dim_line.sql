@@ -4,6 +4,7 @@ WITH src_disruption AS (
 )
 
 SELECT
-    line
+    {{ dbt_utils.generate_surrogate_key(['line']) }} AS line_id,
+    line AS line_name
 FROM src_disruption
-GROUP BY 1
+GROUP BY 1, 2
