@@ -1,0 +1,16 @@
+models:
+  - name: dim_line
+    description: Table which contains London Underground & DLR lines
+    columns:
+      - name: line_id
+        description: Primary key for the line
+        tests:
+          - unique
+          - not_null
+          - relationships:
+              to: ref('fct_disruption')
+              field: line_id
+      - name: line_name
+        description: The name of the line
+        tests:
+          - unique

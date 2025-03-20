@@ -1,0 +1,28 @@
+models:
+  - name: fct_disruptions
+    description: Table which contains details of delays on the London Underground & DLR
+    columns:
+      - name: disruption_id
+        description: Primary key for the disruption
+        tests:
+          - unique
+          - not_null
+      - name: line_id
+        description: The line id. References the dim_line table
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_line')
+              field: line_id
+      - name: description
+        description: Top-level details about the delay
+        tests:
+          - not_null
+      - name: delay_type
+        description: Indicates the severity of the delay
+        tests:
+          - not_null
+      - name: time_received
+        description: A timestamp of when the delay was received from the API
+        tests:
+          - not_null 
