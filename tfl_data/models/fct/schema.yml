@@ -1,5 +1,5 @@
 models:
-  - name: fct_disruptions
+  - name: fct_disruption
     description: Table which contains details of delays on the London Underground & DLR
     columns:
       - name: disruption_id
