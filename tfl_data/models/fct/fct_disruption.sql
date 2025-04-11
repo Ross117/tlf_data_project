@@ -13,6 +13,7 @@ SELECT
     l.line_id,
     d.description,
     d.delay_type,
+    d.type,
     d.time_received
 FROM src_disruption d
 LEFT JOIN dim_line l USING (line_name)
