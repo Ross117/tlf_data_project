@@ -25,4 +25,12 @@ models:
       - name: time_received
         description: A timestamp of when the delay was received from the API
         tests:
-          - not_null 
+          - not_null
+      - name: api_call_log_id
+        description: The id of the api call which was the source of the record. References the fct_api_call_log table.
+        tests:
+          - not_null
+          - relationships:
+              to: ref('fct_api_call_log')
+              field: api_call_log_id
+  - name: fct_api_call_log
