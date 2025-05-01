@@ -2,5 +2,7 @@ sources:
   - name: TFL
     schema: RAW
     tables:
-      - name: DISRUPTION
-        identifier: DISRUPTION
+      - name: disruption
+        identifier: disruption
+      - name: api_call_log
+        identifier: api_call_log
